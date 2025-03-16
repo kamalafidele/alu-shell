@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Iterate over all directories in /proc
+for pid in /proc/[0-9]*/; do
+  # Extract the PID from the directory name
+  pid=$(basename "$pid")
+
+  # Read the process name from the 'comm' file
+  if [[ -f "/proc/$pid/comm" ]]; then
+    process_name=$(cat "/proc/$pid/comm")
+
+    # Check if the process name contains the word 'bash'
+    if [[ "$process_name" == *"bash"* ]]; then
+      echo "PID: $pid, Process Name: $process_name"
+    fi
+  fi
+done

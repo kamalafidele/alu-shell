@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Function to handle SIGTERM signal
+handle_sigterm() {
+  echo "I am invincible!!!"
+}
+
+# Trap SIGTERM signal and call handle_sigterm function
+trap handle_sigterm SIGTERM
+
+# Infinite loop to print "To infinity and beyond"
+while true; do
+  echo "To infinity and beyond"
+  sleep 2
+done

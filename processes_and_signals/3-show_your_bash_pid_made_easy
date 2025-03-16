@@ -10,7 +10,7 @@ for pid in /proc/[0-9]*/; do
 
     # Check if the process name contains the word 'bash'
     if [[ "$process_name" == *"bash"* ]]; then
-      echo "PID: $pid, Process Name: $process_name"
+      echo "$pid $process_name"
     fi
   fi
 done
